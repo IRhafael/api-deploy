@@ -43,7 +43,6 @@ def minha_api_view(request):
 
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
 def criar_vendedor(request):
     serializer = VendedorSerializer(data=request.data)
     if serializer.is_valid():
@@ -71,7 +70,6 @@ def listar_vendedores(request):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
 def listar_produtos(request):
     produtos = Produto.objects.all()
     serializer = ProdutoSerializer(produtos, many=True)
