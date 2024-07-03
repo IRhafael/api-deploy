@@ -31,9 +31,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'api-deploy-luty.onrender.com',
+    '127.0.0.1', 'localhost'
 ]
 
-
+CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,11 +47,13 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'django.contrib.auth',
     'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
